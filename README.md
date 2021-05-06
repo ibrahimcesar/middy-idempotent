@@ -6,7 +6,7 @@
   [![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
  
 
-<p>Developeing in 🇧🇷 <span role="img" aria-label="Flag for Brazil">Brazil</p>
+<p>Developing in 🇧🇷 <span role="img" aria-label="Flag for Brazil">Brazil</p>
 
 </div>
 
