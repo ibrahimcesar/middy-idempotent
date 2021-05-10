@@ -1,0 +1,12 @@
+{
+  "apiName": "demoIdempotence",
+  "api": {
+    "handler": "middyHandler"
+  },
+  "awsAccountId": "",
+  "awsAccountRegion": "",
+  "headers": {
+      "Content-Type": "text/plain;charset=utf-8",
+      "X-Clacks-Overhead": "GNU Terry Pratchett"
+    }
+}
