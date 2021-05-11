@@ -9,7 +9,7 @@
 )&nbsp; &nbsp;[![License](https://badgen.net/github/license/ibrahimcesar/middy-idempotent)](./LICENSE)&nbsp; &nbsp;![GitHub issues by-label](https://img.shields.io/github/issues/ibrahimcesar/middy-idempotent/bug)
  
 
-<p>Developing in 🇧🇷 <span role="img" aria-label="Flag for Brazil">Brazil</p>
+<p>Developed in 🇧🇷 <span role="img" aria-label="Flag for Brazil">Brazil</p>
 
 </div>
 
