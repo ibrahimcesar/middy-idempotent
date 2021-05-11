@@ -17,7 +17,7 @@
 
 [Middy](https://middy.js.org/) is a very simple middleware engine that allows you to simplify your AWS Lambda code when using Node.js. This middleware aims to simplify the implementations of a idempotent API.
 
-Make an API idempotent is not [trivial as much people think](https://awslabs.github.io/aws-lambda-powertools-python/develop/utilities/idempotency/), you could take a look at _Lambda Powertools for Python_ from AWS that does a great job to explain this use case and a concrete way to implement. There's also this great article from [Malcolm Featonby](https://twitter.com/mfeatonby), [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) featured in the Amazon Builder's Library as [Architecture level 300](https://aws.amazon.com/blogs/architecture/category/learning-levels/advanced-300/) which falls ins the _advanced_ classification.
+Making an API idempotent is [not trivial as much people think](https://awslabs.github.io/aws-lambda-powertools-python/develop/utilities/idempotency/), and you could take a look at _Lambda Powertools for Python_ from AWS that does a great job to explain this use case and a concrete way to implement. There's also this great article from [Malcolm Featonby](https://twitter.com/mfeatonby), [Making retries safe with idempotent APIs](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/) featured in the Amazon Builder's Library as [Architecture level 300](https://aws.amazon.com/blogs/architecture/category/learning-levels/advanced-300/) which falls ins the _advanced_ classification.
 
 ## 🚀 Install
 
