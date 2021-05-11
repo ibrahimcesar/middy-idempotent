@@ -33,7 +33,7 @@ npm install middy-idempotent -S
 
 ## Usage
 
-Besides `@middy/core`, you must also use `@middy/http-json-body-parser` since this middleware will read the request body and needed parsed as json. And right now I only tested twith the client provided by the `ioredis` lib as well, so you'll need to install it too. At tthe bottom there's a write-up where we'll find how to use a Serverless Database service called [Upstash](https://upstash.com/) for free that is currently (`0.0.15`) the only storage supported.
+Besides `@middy/core`, you must also use `@middy/http-json-body-parser` since this middleware will read the request body and needed parsed as json. And right now I only tested twith the client provided by the `ioredis` lib as well, so you'll need to install it too. At tthe bottom there's a write-up where we'll find how to use a Serverless Database service called [Upstash](https://upstash.com/) for free that is currently (`0.0.13`) the only storage supported.
 
 ```ts
 handler.use(jsonBodyParser()).use(
@@ -43,7 +43,7 @@ handler.use(jsonBodyParser()).use(
 );
 ```
 
-Just place in your code, as soon as possible, passing the Redis client constructor with your `rediss://` url. See `backend` for an example of application with infrastructure provisioned in AWS CDK.
+Just place in your code, as soon as possible, passing the Redis client constructor with your `rediss://` url. See `demo` for an example of application with infrastructure provisioned in AWS CDK.
 
 ### TODO
 - [] Add more storages (DynamoDB, etc)
