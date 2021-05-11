@@ -9,7 +9,7 @@
 )&nbsp; &nbsp;[![License](https://badgen.net/github/license/ibrahimcesar/middy-idempotent)](./LICENSE)&nbsp; &nbsp;![GitHub issues by-label](https://img.shields.io/github/issues/ibrahimcesar/middy-idempotent/bug)
  
 
-<p>Developing in 🇧🇷 <span role="img" aria-label="Flag for Brazil">Brazil</p>
+<p>Developed in 🇧🇷 <span role="img" aria-label="Flag for Brazil">Brazil</p>
 
 </div>
 
@@ -46,8 +46,9 @@ handler.use(jsonBodyParser()).use(
 Just place in your code, as soon as possible, passing the Redis client constructor with your `rediss://` url. See `demo` for an example of application with infrastructure provisioned in AWS CDK.
 
 ### TODO
-- [] Add more storages (DynamoDB, etc)
-- [] Choose what be the key (JSON path, header key etc)
+- [ ] Add more storages (DynamoDB, etc)
+- [ ] Choose what be the key (JSON path, header key etc)
+
 ## 📚 Read more
 
 - [Redis: Exploring Redis as Serverless Database to solve idempotence in APIs]()
