@@ -13,11 +13,11 @@ export class ApiStack extends cdk.Stack {
       code: new lambda.AssetCode(path.resolve(__dirname, "dist")),
       handler: `index.${config.api.handler}`,
       runtime: lambda.Runtime.NODEJS_14_X,
-      description: "An lambda to test",
+      description: "A lambda to test",
       tracing: lambda.Tracing.ACTIVE,
       environment: {
         UPSTASH_REDISS:
-          "rediss://:5faa9cfe16d44ed1adbe366ab22623a7@us1-merry-worm-33404.upstash.io:33404",
+          "",
       },
     });
 

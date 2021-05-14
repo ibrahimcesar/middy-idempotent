@@ -33,7 +33,7 @@ npm install middy-idempotent -S
 
 ## Usage
 
-Besides `@middy/core`, you must also use `@middy/http-json-body-parser` since this middleware will read the request body and needed parsed as json. And right now I only tested twith the client provided by the `ioredis` lib as well, so you'll need to install it too. At tthe bottom there's a write-up where we'll find how to use a Serverless Database service called [Upstash](https://upstash.com/) for free that is currently (`0.0.18`) the only storage supported.
+Besides `@middy/core`, you must also use `@middy/http-json-body-parser` since this middleware will read the request body and needed parsed as json. And right now I only tested twith the client provided by the `ioredis` lib as well, so you'll need to install it too. At tthe bottom there's a write-up where we'll find how to use a Serverless Database service called [Upstash](https://upstash.com/) for free that is currently (`0.0.20`) the only storage supported.
 
 ```ts
 handler.use(jsonBodyParser()).use(
@@ -60,7 +60,7 @@ Note that the optional targets are mutually excludents, they obey the hierarchy 
 
 ## 📚 Read more
 
-- [Redis: Exploring Redis as Serverless Database to solve idempotence in APIs]()
+- [Redis: Exploring Redis as Serverless Database to solve idempotence in APIs](https://dev.to/aws-builders/redis-exploring-redis-as-serverless-database-to-solve-idempotence-in-apis-2gma)
 
 ## See Also
 
