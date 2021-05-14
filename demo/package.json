@@ -34,7 +34,7 @@
     "css-loader": "^5.2.0",
     "esbuild": "^0.8.44",
     "eslint": "^7.23.0",
-    "middy-idempotent": "0.0.11",
+    "middy-idempotent": "0.0.19",
     "prettier": "^2.2.1",
     "rollup-plugin-banner2": "^1.2.2",
     "rollup-plugin-copy": "^3.4.0",

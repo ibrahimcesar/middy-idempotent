@@ -1,6 +1,6 @@
 {
   "name": "middy-idempotent",
-  "version": "0.0.13",
+  "version": "0.0.19",
   "description": "An Idempotent Middleware for Middy",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

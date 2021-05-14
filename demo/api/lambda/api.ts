@@ -29,6 +29,7 @@ let handler = middy(baseHandler);
 handler.use(jsonBodyParser()).use(
   idempotent({
     client: new Redis(process.env.UPSTASH_REDISS),
+    header: "x-forwarded-for",
   })
 );
 

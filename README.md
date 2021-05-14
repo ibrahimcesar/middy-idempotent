@@ -33,7 +33,7 @@ npm install middy-idempotent -S
 
 ## Usage
 
-Besides `@middy/core`, you must also use `@middy/http-json-body-parser` since this middleware will read the request body and needed parsed as json. And right now I only tested twith the client provided by the `ioredis` lib as well, so you'll need to install it too. At tthe bottom there's a write-up where we'll find how to use a Serverless Database service called [Upstash](https://upstash.com/) for free that is currently (`0.0.13`) the only storage supported.
+Besides `@middy/core`, you must also use `@middy/http-json-body-parser` since this middleware will read the request body and needed parsed as json. And right now I only tested twith the client provided by the `ioredis` lib as well, so you'll need to install it too. At tthe bottom there's a write-up where we'll find how to use a Serverless Database service called [Upstash](https://upstash.com/) for free that is currently (`0.0.18`) the only storage supported.
 
 ```ts
 handler.use(jsonBodyParser()).use(
@@ -43,11 +43,20 @@ handler.use(jsonBodyParser()).use(
 );
 ```
 
-Just place in your code, as soon as possible, passing the Redis client constructor with your `rediss://` url. See `demo` for an example of application with infrastructure provisioned in AWS CDK.
+Just place in your code, as soon as possible, passing the Redis client constructor with your `rediss://` url. See `demo` for an example of application with infrastructure provisioned in AWS CD
+Besides the client, you have th possibility to choose your own idempotency key instead of the whole `event`:
+
+| Prop   |      Type      |  Description |
+|----------|:--------:|------------|
+| **client** |  Instance of class Redis | instance of the class Redis provided by the lib [`ioredis`](https://github.com/luin/ioredis), the only supported at the moment |
+| body |    boolean or string   | Optional. If `true` uses the body sent in the request. If no body is sent, this will yield an error.  |
+| header | string | Optional. If you pass any value, will try to get this value as a key header in your request (i.e, `x-forwarded-for` and `x-idempotency-key`) |
+| path | String. One of "rawPath" or "rawQueryString" | Optional. If you want to target a very specific (and possibly dynamic) path or raw query string in the request |
+
+Note that the optional targets are mutually excludents, they obey the hierarchy `body` > `header` > `path` meaning if you pass all of them, it will pick `body` and if that is not provided `header` is picked. The default behaviour is use all the event object as idempotency key.
 
 ### TODO
 - [ ] Add more storages (DynamoDB, etc)
-- [ ] Choose what be the key (JSON path, header key etc)
 
 ## 📚 Read more
 
