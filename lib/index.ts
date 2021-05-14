@@ -2,6 +2,9 @@ import crypto from "crypto";
 
 interface Idempotent {
   client?: any;
+  path?: "rawPath" | "rawQueryString";
+  header?: string;
+  body?: true | string;
 }
 
 const createHash = (event: any): string => {
@@ -11,14 +14,54 @@ const createHash = (event: any): string => {
     .digest("base64");
 };
 
-const defaults = { client: null };
+class Persistence {
+
+  adapter: any;
+  hash: string;
+  response?: string;
+
+  constructor(adapter: any, hash: string, response?: string) {
+    this.adapter = adapter,
+    this.hash = hash
+    this.response = response
+  }
+
+  async get(): Promise<string> {
+    return await this.adapter.get(this.hash);
+  }
+
+  async set(): Promise<any> {
+    return await this.adapter.set(this.hash, this.response)
+  }
+
+}
+
+const defaults = { body: null, client: null, header: null, path: null };
 
 const idempotent = ({ ...opts }: Idempotent) => {
   const options = { ...defaults, ...opts };
   const idempotentBefore = async (request: any): Promise<any> => {
-    const hash = createHash(request.event);
+    let hash = "";
 
-    const getByHash = await options.client.get(hash);
+    hash = createHash(request.event);
+
+    if (options.path) {
+      hash = createHash(request.event[options.path]);
+    }
+
+    if (options.header) {
+      hash = createHash(request.event.headers[options.header]);
+    }
+
+    if (options.body) {
+      hash = createHash(request.event.body);
+
+      if (typeof options.body === "string") {
+        hash = createHash(request.event.body[options.body]);
+      }
+    }
+
+    const getByHash = await new Persistence(options.client, hash).get();
 
     if (getByHash) {
       return JSON.parse(getByHash);
@@ -29,7 +72,7 @@ const idempotent = ({ ...opts }: Idempotent) => {
 
     const responseStr = JSON.stringify(request.response);
 
-    await options.client.set(hash, responseStr);
+    await new Persistence(options.client, hash, responseStr).set();
   };
   const idempotentOnError = async (request: any) => {
     console.error(request);
