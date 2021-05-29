@@ -4,6 +4,7 @@ import * as lambda from "@aws-cdk/aws-lambda";
 import * as cdk from "@aws-cdk/core";
 import path from "path";
 import config from "../stack.config.json";
+import env from "../.env.json"
 
 export class ApiStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string) {
@@ -16,7 +17,7 @@ export class ApiStack extends cdk.Stack {
       description: "An lambda to test",
       tracing: lambda.Tracing.ACTIVE,
       environment: {
-        UPSTASH_REDISS: "rediss://:5faa9cfe16d44ed1adbe366ab22623a7@us1-merry-worm-33404.upstash.io:33404",
+        UPSTASH_REDISS: env.upstash,
       },
     });
 
