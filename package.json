@@ -1,13 +1,14 @@
 {
   "name": "middy-idempotent",
-  "version": "0.0.13",
+  "version": "0.0.21",
   "description": "An Idempotent Middleware for Middy",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx rollup -c",
-    "pub": "npx rollup -c && npm publish"
+    "pub": "npx rollup -c && npm publish",
+    "beta": "npx rollup -c && npm publish --tag beta"
   },
   "repository": {
     "type": "git",

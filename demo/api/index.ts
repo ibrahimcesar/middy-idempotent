@@ -16,7 +16,7 @@ export class ApiStack extends cdk.Stack {
       description: "An lambda to test",
       tracing: lambda.Tracing.ACTIVE,
       environment: {
-        UPSTASH_REDISS: "",
+        UPSTASH_REDISS: "rediss://:5faa9cfe16d44ed1adbe366ab22623a7@us1-merry-worm-33404.upstash.io:33404",
       },
     });
 

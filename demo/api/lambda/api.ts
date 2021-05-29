@@ -28,7 +28,10 @@ async function baseHandler(
 let handler = middy(baseHandler);
 handler.use(jsonBodyParser()).use(
   idempotent({
-    client: new Redis(process.env.UPSTASH_REDISS),
+    adapter: {
+      port: "redis"
+      client: new Redis(process.env.UPSTASH_REDISS),
+    }
   })
 );
 
