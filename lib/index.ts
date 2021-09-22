@@ -31,7 +31,7 @@ const idempotent = ({ ...opts }: Idempotent) => {
     const responseStr = JSON.stringify(request.response);
 
     if (options.ttl) {
-      await options.client.set(hash, responseStr, options.ttl, 'ex');
+      await options.client.set(hash, responseStr, 'ex', options.ttl);
     } else {
       await options.client.set(hash, responseStr);
     }
