@@ -52,6 +52,7 @@ Besides the client, you have th possibility to choose your own idempotency key i
 | body |    boolean or string   | Optional. If `true` uses the body sent in the request. If no body is sent, this will yield an error.  |
 | header | string | Optional. If you pass any value, will try to get this value as a key header in your request (i.e, `x-forwarded-for` and `x-idempotency-key`) |
 | path | String. One of "rawPath" or "rawQueryString" | Optional. If you want to target a very specific (and possibly dynamic) path or raw query string in the request |
+| ttl | number | Optional. Redis keys live forever by default, so being able to set a time to live is useful to avoid running out of memory in your Redis instance, as this will cause your lambdas to fail. Time unit: _seconds_.
 
 Note that the optional targets are mutually excludents, they obey the hierarchy `body` > `header` > `path` meaning if you pass all of them, it will pick `body` and if that is not provided `header` is picked. The default behaviour is use all the event object as idempotency key.
 
