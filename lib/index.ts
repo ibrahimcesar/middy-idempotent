@@ -2,6 +2,7 @@ import crypto from "crypto";
 
 interface Idempotent {
   client?: any;
+  ttl?: number;
 }
 
 const createHash = (event: any): string => {
@@ -11,7 +12,7 @@ const createHash = (event: any): string => {
     .digest("base64");
 };
 
-const defaults = { client: null };
+const defaults = { client: null, ttl: null };
 
 const idempotent = ({ ...opts }: Idempotent) => {
   const options = { ...defaults, ...opts };
@@ -29,7 +30,11 @@ const idempotent = ({ ...opts }: Idempotent) => {
 
     const responseStr = JSON.stringify(request.response);
 
-    await options.client.set(hash, responseStr);
+    if (options.ttl) {
+      await options.client.set(hash, responseStr, 'ex', options.ttl);
+    } else {
+      await options.client.set(hash, responseStr);
+    }
   };
   const idempotentOnError = async (request: any) => {
     console.error(request);
